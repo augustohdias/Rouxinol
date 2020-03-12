@@ -9,7 +9,7 @@ import (
 )
 
 type mongoDBUserRepo struct {
-	DB *mongo.Database
+	Collection *mongo.Collection
 }
 
 func (m *mongoDBUserRepo) GetById(ctx context.Context, id string) (*models.User, error) {
@@ -18,14 +18,11 @@ func (m *mongoDBUserRepo) GetById(ctx context.Context, id string) (*models.User,
 }
 
 func NewMongoDBRepository(db *mongo.Database) user.Repository {
-	return &mongoDBUserRepo{
-		DB: db,
-	}
+	return &mongoDBUserRepo{db.Collection("users")}
 }
 
 func (m *mongoDBUserRepo) findOne(ctx context.Context, filter bson.D) (*models.User, error) {
-	collection := m.DB.Collection("user")
-	result := collection.FindOne(ctx, filter)
+	result := m.Collection.FindOne(ctx, filter)
 	var usr models.User
 	err := result.Decode(&usr)
 	return &usr, err
