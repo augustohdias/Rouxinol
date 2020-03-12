@@ -17,7 +17,7 @@ func (m *mongoDBUserRepo) GetById(ctx context.Context, id string) (*models.User,
 	return m.findOne(ctx, filter)
 }
 
-func NewMongoDBRepository(db *mongo.Database) user.Repository {
+func NewMongoDBUserRepository(db *mongo.Database) user.Repository {
 	return &mongoDBUserRepo{db.Collection("users")}
 }
 
