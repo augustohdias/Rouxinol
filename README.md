@@ -4,9 +4,9 @@ Backend de uma rede social. Tipo o Twitter, só que bom.
 
 ## Stack
 
-Go
-Mux
-MongoDB
+* Go
+* Mux
+* MongoDB
 
 ## Features
 
