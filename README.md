@@ -1,6 +1,6 @@
 # Rouxinol
 
-Backend de uma rede social. Tipo o Twitter, só que bom.
+Twitter like social network backend.
 
 ## Stack
 
@@ -10,6 +10,3 @@ Backend de uma rede social. Tipo o Twitter, só que bom.
 
 ## Features
 
-Mostra uns post
-
-to com sono
