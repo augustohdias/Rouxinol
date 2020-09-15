@@ -35,7 +35,7 @@ func (m *mongoDBPostRepository) New(ctx context.Context, post models.Post) error
 		{Key: "username", Value: post.Username},
 		{Key: "text", Value: post.Text},
 		{Key: "attachment", Value: post.Attachment},
-		{Key: "alias", Value: post.Alias}
+		{Key: "alias", Value: post.Alias},
 	})
 
 	return err
