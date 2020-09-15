@@ -2,7 +2,7 @@ package user
 
 import (
 	"context"
-	"github.com/augustohdias/rouxinol/models"
+	"github.com/augustohdias/Rouxinol/models"
 )
 
 type Repository interface {

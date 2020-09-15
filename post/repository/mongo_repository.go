@@ -2,11 +2,12 @@ package repository
 
 import (
 	"context"
-	"github.com/augustohdias/rouxinol/models"
-	"github.com/augustohdias/rouxinol/post"
+	"log"
+
+	"github.com/augustohdias/Rouxinol/models"
+	"github.com/augustohdias/Rouxinol/post"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"log"
 )
 
 type mongoDBPostRepository struct {
@@ -20,16 +21,24 @@ func (m *mongoDBPostRepository) GetByID(ctx context.Context, id string) (*models
 	return &p, err
 }
 
-func (m *mongoDBPostRepository) GetAllByUserID(ctx context.Context, id string) ([]*models.Post, error) {
-	return m.find(ctx, bson.D{{"user_id", id}})
+func (m *mongoDBPostRepository) GetAllByUsername(ctx context.Context, username string) ([]*models.Post, error) {
+	return m.find(ctx, bson.D{{"username", username}})
 }
 
-func (m *mongoDBPostRepository) GetAllByUserIDs(ctx context.Context, ids []string) ([]*models.Post, error) {
-	return m.find(ctx, bson.D{{"user_id", bson.D{{"$in", ids}}}})
+func (m *mongoDBPostRepository) GetAllByUsernames(ctx context.Context, usernames []string) ([]*models.Post, error) {
+	return m.find(ctx, bson.D{{"username", bson.D{{"$in", usernames}}}})
 }
 
 func (m *mongoDBPostRepository) New(ctx context.Context, post models.Post) error {
-	panic("implement me")
+	_, err := m.Collection.InsertOne(ctx, bson.D{
+		{Key: "id", Value: post.ID},
+		{Key: "username", Value: post.Username},
+		{Key: "text", Value: post.Text},
+		{Key: "attachment", Value: post.Attachment},
+		{Key: "alias", Value: post.Alias}
+	})
+
+	return err
 }
 
 func (m *mongoDBPostRepository) Update(ctx context.Context, post models.Post) error {

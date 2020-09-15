@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/augustohdias/rouxinol/controller"
-	"github.com/augustohdias/rouxinol/mongo_client"
-	_postRepo "github.com/augustohdias/rouxinol/post/repository"
-	_userRepo "github.com/augustohdias/rouxinol/user/repository"
+	"github.com/augustohdias/Rouxinol/controller"
+	"github.com/augustohdias/Rouxinol/mongo_client"
+	_postRepo "github.com/augustohdias/Rouxinol/post/repository"
+	_userRepo "github.com/augustohdias/Rouxinol/user/repository"
 	"log"
 	"net/http"
 
@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	db := mongo_client.GetClient().Database("rouxinol")
+	db := mongo_client.GetClient().Database("Rouxinol")
 	userRepository := _userRepo.NewMongoDBUserRepository(db)
 	postRepository := _postRepo.NewMongoDBPostRepository(db)
 

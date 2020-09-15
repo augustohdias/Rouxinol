@@ -2,8 +2,8 @@ package repository
 
 import (
 	"context"
-	"github.com/augustohdias/rouxinol/models"
-	"github.com/augustohdias/rouxinol/user"
+	"github.com/augustohdias/Rouxinol/models"
+	"github.com/augustohdias/Rouxinol/user"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
