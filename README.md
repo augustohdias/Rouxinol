@@ -1,6 +1,6 @@
 # Rouxinol
 
-Twitter like social network backend.
+Backend for a twitter like social network.
 
 ## Stack
 
