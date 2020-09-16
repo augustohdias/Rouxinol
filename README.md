@@ -10,3 +10,5 @@ Twitter like social network backend.
 
 ## Features
 
+* Create a new post
+* Retrieve posts by username
